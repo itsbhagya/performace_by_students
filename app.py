@@ -1,19 +1,16 @@
-import streamlit as st
+import os
 import pickle
-import pandas as pd
-import numpy as np
+import streamlit as st
 
-# Set page configuration
-st.set_page_config(
-    page_title="Student Performance Predictor",
-    page_icon="🎓",
-    layout="wide"
-)
 
-# Load the trained pickle model
+# Pehle se likhe code mein sirf is function ko replace karein:
 @st.cache_resource
 def load_model():
-    with open("model.pkl", "rb") as file:
+    # Ye line exact folder path dhoondti hai
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.join(BASE_DIR, "model.pkl")
+
+    with open(model_path, "rb") as file:
         model = pickle.load(file)
     return model
 
