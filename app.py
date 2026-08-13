@@ -1,6 +1,7 @@
 import os
 import pickle
 import streamlit as st
+import pandas as pd
 
 
 # Pehle se likhe code mein sirf is function ko replace karein:
